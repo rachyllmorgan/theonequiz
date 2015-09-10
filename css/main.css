@@ -1,0 +1,32 @@
+/** #1 - 6 **/
+ul li:first-child {
+	
+}
+
+li {
+	display: inline;
+}
+
+section:nth-of-type(2n+1){
+	border: 1px solid red;
+}
+
+li:nth-of-type(2n+0){
+	background-color: lime;
+}
+
+section > aside:first-child {
+	color:  blue;
+}
+
+div.right{
+	float: right;
+}
+
+div.left{
+	float: left;
+}
+
+div.below {
+	display: inline-block;
+}
