@@ -47,8 +47,12 @@ var jqueryPhrase = "This content generated with jQuery";
 			console.log(sortedPlanets());
 
 
-	function reversedPlanets(element, index, array){
-		return Planets.reverse();
+	function reversedPlanets(){
+		var newArray = [];
+		Planets.forEach(function(item, index, array){
+			console.log(item.split('').reverse().join(""));
+			return item.split('').reverse().join("");
+		})
 	}
 		console.log(reversedPlanets());
 
@@ -72,5 +76,8 @@ var jqueryPhrase = "This content generated with jQuery";
 	};
 
 	getAnimals();
+
+
+
 
 });
