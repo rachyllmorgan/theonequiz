@@ -29,10 +29,17 @@ http-server
 1. Explain what hoisting is. Provide your answer below.
 
   **Student answer: **
+  Hoisting: Lifting declared functions and variables to the top of whatever scope they reside.
 1. What is a callback? Why do we use them in JavaScript? Provide your answer, and code a simple example below.
 
   **Student answer: **
-
+ A reference to a code that can be passed as an argument to another code when necessary for use.
+ Example:
+ function getInput (options, callback) {
+  data.push (options);
+   callback (options);
+  }
+ 
 ## Functions and operators
 
 > In `main.js` do the following:
@@ -61,18 +68,41 @@ http-server
 1. Write a function named `getAnimals` that uses the jQuery `ajax` method to retrieve the `data/animals.json` file. When you execute the functions, it should just log *just the array* of animals to the console when the async is complete. Make sure you provide a prompt of "animals" when logging the array.
 1. What are the four HTTP verbs that you can use in an XHR that correspond to the CRUD actions (create, read, update, delete)?
   **Student answer:**
-
+  POST, GET, PUT, DELETE
 1. Why did we use Promises when dealing with asynchronous XHR calls?
   **Student answer:**
-
+  They are an alternative to callbacks in order to control asynchronous flow.
 1. Provide a simple example of the syntax for handling a Promise.
   **Student answer:**
+ Using Promises
+define(["jquery", "q"], function ($, Q) {
+  
+return function(){
+  // Create a deferred Promise
+  var deferred = Q.defer();
 
+  // Start the ajax call
+  $.ajax({
+  	url: "./data/music2.json"
+  })
+    .done(function(songs_data) {
+      deferred.resolve(songs_data);
+    })
+    .fail(function(xhr, status, error) {
+      deferred.reject(error);
+    });
+
+  // Return the promise
+  return deferred.promise;
+	};
+});
 ## Scope and this
 
 What gets logged to the console when the following code executes? Explain why.
 
 **Student answer: **
+
+42 because steve() pulls from the global scope, I believe.
 
 ```
 var answer = "42";
